@@ -1,70 +1,63 @@
-# React + TypeScript + Vite
+# Aaron Bishop – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal software engineering portfolio built with **React, TypeScript, and Vite**.  
+It showcases my experience, projects, and skills, and includes an easy way to get in touch or download my resume.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Built with **React + TypeScript + Vite**
+- **Tailwind CSS** for styling
+- **shadcn/ui** components (Button, Card, Badge, Separator)
+- **Framer Motion** for animations
+- **React Icons** for brand icons (GitHub, LinkedIn, Email)
+- Smooth scrolling and responsive layout
+- Downloadable **Resume (PDF)**
+- Contact links:
+  - 📧 Email (opens default mail client)
+  - 📞 Phone (click-to-call on mobile)
+  - 📍 Location (opens Google Maps)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
+```
+my-portfolio/
+├── public/                  # static assets (resume, favicon, etc.)
+│   └── Aaron_Bishop_Resume.pdf
+├── src/
+│   ├── components/ui/       # shadcn/ui components
+│   ├── App.tsx              # main portfolio layout
+│   ├── index.css            # Tailwind + custom styles
+│   └── main.tsx             # Vite entry
+├── tailwind.config.cjs
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Development
+Clone and run locally:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/aaronbishop/my-portfolio.git
+cd my-portfolio
+npm install
+npm run dev
 ```
-# my-portfolio
+
+Then open [http://localhost:5173](http://localhost:5173).
+
+## 📦 Build for Production
+```bash
+npm run build
+```
+
+The output is in `dist/`.
+
+## 🌐 Deployment
+You can host this site for free on:
+- [Vercel](https://vercel.com)  
+- [Netlify](https://www.netlify.com)  
+- [GitHub Pages](https://pages.github.com)  
+
+## 👨‍💻 Author
+**Aaron Bishop**  
+- GitHub: [aaronbishop](https://github.com/aaronbishop)  
+- LinkedIn: [linkedin.com/in/aaron-bishop-99496458](https://www.linkedin.com/in/aaron-bishop-99496458/)  
+- Email: [rhykros@gmail.com](mailto:rhykros@gmail.com)
