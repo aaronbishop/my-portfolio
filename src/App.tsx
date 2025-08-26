@@ -9,8 +9,11 @@ import { Separator } from "@/components/ui/separator"
 const PROFILE = {
   name: "Aaron Bishop",
   title: "Senior Software Engineer",
-  summary:
-    "Experienced full-stack engineer with expertise in Angular, Java, AWS, and modernizing enterprise applications. Skilled in building scalable, secure, and high-performance systems with a strong background in healthcare and government solutions.",
+  summary:`Experienced full-stack engineer with expertise in Angular, Java, AWS, and modernizing enterprise applications. Skilled in building scalable, secure, and high-performance systems with a strong background in healthcare and government solutions. 
+  I'm passionate about helping people, writing clean code, following best practices, and continuous learning. 
+
+
+  When I'm not coding, I enjoy 🥋 practicing martial arts (currently Brazilian Jiu Jitsu), 🍳 cooking amazing food for friends and family, [ROLLERBLADE] rollerblading/biking, and 🎮 competitive gaming with my friends.`,
   location: "Christiansburg, VA",
   email: "rhykros@gmail.com",
   phone: "336-676-3348",
@@ -89,6 +92,22 @@ const PROJECTS = [
   },
 ]
 
+const RollerbladeIcon = () => (
+  <img
+    src="/rollerblade.png"
+    alt="rollerblade"
+    className="inline-block w-[1.15em] h-[1.15em] align-[-0.2em] mx-1"
+  />
+);
+
+function renderWithIcons(text: string) {
+  const TOKEN = "[ROLLERBLADE]";
+  const parts = text.split(TOKEN);
+  return parts.flatMap((part, i) =>
+    i < parts.length - 1 ? [part, <RollerbladeIcon key={`rb-${i}`} />] : [part]
+  );
+}
+
 export default function App() {
   const [showTop, setShowTop] = useState(false)
 
@@ -140,9 +159,23 @@ export default function App() {
             Hi, I&apos;m {PROFILE.name}
           </h1>
           <p className="mt-4 text-xl text-zinc-100">{PROFILE.title}</p>
-          <p className="mt-2 max-w-2xl mx-auto text-zinc-200">
-            {PROFILE.summary}
-          </p>
+          <motion.div
+            className="text-white leading-relaxed max-w-[75%] mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            {PROFILE.summary.split("\n").map((para, i) =>
+              para.trim() ? (
+                <p
+                  key={i}
+                  className={i === 2 ? "mt-8 mb-0" : "mt-0 mb-4"}
+                >
+                  {renderWithIcons(para)}
+                </p>
+              ) : null
+            )}
+          </motion.div>
           <div className="mt-6 flex justify-center gap-4">
             <Button asChild variant="secondary">
               <a href={PROFILE.social.github} target="_blank">
