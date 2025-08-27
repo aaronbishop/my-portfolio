@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Download, ArrowUp, } from "lucide-react"
+import { Mail, Phone, MapPin, Download, ArrowUp } from "lucide-react"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
@@ -11,8 +11,6 @@ const PROFILE = {
   title: "Senior Software Engineer",
   summary:`Experienced full-stack engineer with expertise in Angular, Java, AWS, and modernizing enterprise applications. Skilled in building scalable, secure, and high-performance systems with a strong background in healthcare and government solutions. 
   I'm passionate about helping people, writing clean code, following best practices, and continuous learning. 
-
-
   When I'm not coding, I enjoy 🥋 practicing martial arts (currently Brazilian Jiu Jitsu), 🍳 cooking amazing food for friends and family, [ROLLERBLADE] rollerblading/biking, and 🎮 competitive gaming with my friends.`,
   location: "Christiansburg, VA",
   email: "rhykros@gmail.com",
@@ -52,6 +50,8 @@ const EXPERIENCE = [
     bullets: [
       "Developed PMAT/VDAF tool for transportation data integration and visualization.",
       "Implemented REST APIs and front-end data visualization with Leaflet maps.",
+      "Contributed to NavyPal, the intended replacement for Navy mess hall software, building features in C#.",
+      "Created a Windows installer for NavyPal to streamline deployment across environments.",
     ],
   },
   {
@@ -64,6 +64,14 @@ const EXPERIENCE = [
     ],
   },
 ]
+
+const SKILLS: Array<{ group: string; items: string[] }> = [
+  { group: "Languages", items: ["C#", "Java", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"] },
+  { group: "Frameworks", items: ["Angular", "Spring", "Express", "GWT", "Junit", "JQuery", "React"] },
+  { group: "Cloud & DevOps", items: ["AWS", "Docker", "CI/CD", "Jenkins"] },
+  { group: "Databases", items: ["MySQL", "Oracle", "MongoDB", "PostgreSQL"] },
+  { group: "Other", items: ["Agile SCRUM", "System Design", "Security (NSA 4011/4013E)", "CMMI"] },
+];
 
 const PROJECTS = [
   {
@@ -89,6 +97,13 @@ const PROJECTS = [
     description:
       "Built front-end and backend integration tool enabling unified access to transportation data across agencies.",
     tags: ["Java", "GWT", "REST API", "Leaflet", "OpenStreetMap"],
+  },
+  {
+    name: "NavyPal",
+    description:
+      "Contributed to the NavyPal project, the intended replacement for the software used in Navy mess halls. I created a Windows installer and contributed to the C# codebase, helping modernize deployment and improve maintainability.",
+    tags: ["C#", "Enterprise Software", "Government", "Windows Installer"],
+    impact: "Streamlined deployment and supported modernization of critical Navy dining facility software.",
   },
 ]
 
@@ -216,6 +231,39 @@ export default function App() {
                   <li key={j}>{b}</li>
                 ))}
               </ul>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <Separator className="my-20 bg-gradient-to-r from-emerald-500 to-black h-0.5" />
+
+      {/* Skills */}
+      <section id="skills" className="mx-auto max-w-5xl px-6 py-20">
+        <h2 className="section-title text-3xl font-bold mb-10 text-white">
+          Skills
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SKILLS.map(({ group, items }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="p-6 rounded-xl border border-zinc-800 bg-zinc-900 hover:border-emerald-400 transition-all"
+            >
+              <h3 className="text-lg font-semibold text-white">{group}</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {items.map((s) => (
+                  <span
+                    key={s}
+                    className="badge-gradient text-sm"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
