@@ -253,13 +253,10 @@ export default function App() {
               transition={{ duration: 0.5 }}
               className="p-6 rounded-xl border border-zinc-800 bg-zinc-900 hover:border-emerald-400 transition-all"
             >
-              <h3 className="text-lg font-semibold text-white">{group}</h3>
+              <h3 className="text-xl font-semibold text-white">{group}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {items.map((s) => (
-                  <span
-                    key={s}
-                    className="badge-gradient text-sm"
-                  >
+                  <span key={s} className="badge-gradient">
                     {s}
                   </span>
                 ))}
@@ -295,6 +292,49 @@ export default function App() {
                   </span>
                 ))}
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <Separator className="my-20 bg-gradient-to-r from-emerald-500 to-black h-0.5" />
+
+      {/* Education */}
+      <section id="education" className="mx-auto max-w-5xl px-6 py-20">
+        <h2 className="section-title text-3xl font-bold mb-10 text-white">
+          Education
+        </h2>
+        <div className="space-y-6">
+          {[
+            {
+              degree: "B.S. Computer Science",
+              school: "Radford University",
+              year: "2014",
+              details: "Minor: Security",
+            },
+            {
+              degree: "A.A. Liberal Studies",
+              school: "Valencia Community College",
+              year: "2002",
+            },
+          ].map((edu, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="p-6 rounded-xl border border-zinc-800 bg-zinc-900 hover:border-emerald-400 transition-all"
+            >
+              <h3 className="text-xl font-semibold text-white">
+                {edu.degree}
+              </h3>
+              <p className="text-sm text-zinc-400">
+                {edu.school} — {edu.year}
+              </p>
+              {edu.details && (
+                <p className="text-zinc-300 mt-1">{edu.details}</p>
+              )}
             </motion.div>
           ))}
         </div>
